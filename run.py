@@ -2,42 +2,42 @@ print("Welcome to my computer quiz!")
 
 playing = input("Do you want to play? ")
 
-if playing != "yes":
+if playing.lower() != "yes":
     quit()
 
 print("Okay! Let's play :)")    
 
 
 answer = input("Who is the founder of Apple? ")
-if answer == "Steve Jobs":
+if answer.lower() == "steve jobs":
     print('Correct!')
 
 else:
     print("Incorrect!")
 
 answer = input("Who is the founder of Microsoft? ")
-if answer == "Bill Gates":
+if answer.lower() == "bill gates":
     print('Correct!')
 
 else:
     print("Incorrect!")
 
 answer = input("Who is the founder of Google? ")
-if answer == "Larry Page":
+if answer.lower() == "larry page":
     print('Correct!')
 
 else:
     print("Incorrect!")
 
 answer = input("Who is the founder of Facebook? ")
-if answer == "Mark Zuckerberg":
+if answer.lower() == "mark zuckerberg":
     print('Correct!')
 
 else:
     print("Incorrect!")
 
 answer = input("Who is the founder of Tesla? ")
-if answer == "Elon Musk":
+if answer.lower() == "elon musk":
     print('Correct!')
 
 else:
