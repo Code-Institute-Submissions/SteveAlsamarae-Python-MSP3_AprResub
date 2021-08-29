@@ -1,31 +1,48 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Quiz Python Game
+This is a quiz that runs in Python terminal via Heroku.
 
-Welcome Steve Alsamarae,
+It is a simplistic quiz that consists of multiple questions, you can beat the computer by answering the questions correctly.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+[Live Version Of The Game](https://quiz-game-python.herokuapp.com/)
 
-## Reminders
+![Mockup-image](mock-up.png)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## How to play
 
-## Creating the Heroku app
+Quiz game consists of 5 different questions, participant has to agree to start to the quiz, which in turn will allow the computer to start posing questions, if answered correctly, you get 1 point. User's final score will also be calculated in percentage.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Features:
+![feature-1](feature-1.png)
+ - Computer automatically asks the participant if they would like to play. 
+ - If the input is yes, computer will then impose the first the questions.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+![feature-2](feature-2.png)
+ - If the questions is answered correctly, the computer will then tell you "Correct!"
+ - Computer then imposes the second question.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+ ![feature-3](feature-3.png)
+ - If the question is answered incorrectly, the computer will then say "Incorrect!" and move on to the second question.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+ ![feature-4](feature-4.png)
+ - Computer then generates the score, after all the questions answered.
+ - Computer calculates your score in percentages.
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
+### Testing
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+- Manually tested the code, found no bugs.
+- Ran the code through linter with no issues in return.
 
------
-Happy coding!
+### Bugs
+- No bugs were found.
+
+### Valditor testing
+- No errors were found when passing through [Pep8online](https://pep8online.com/).
+
+### Deployment
+This project was deployed through Heroku.
+
+### Credits
+- Code institute
+- Udemy
+- Heroku
