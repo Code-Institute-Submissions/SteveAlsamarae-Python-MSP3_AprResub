@@ -33,6 +33,7 @@ Quiz game consists of 5 different questions, participant has to agree to start t
 * [Heroku](https://heroku.com/)
 
 ### Testing
+![Lighthouse](lighthouse.png)
 
 - Manually tested the code, found no bugs.
 - Ran the code through linter with no issues in return.
