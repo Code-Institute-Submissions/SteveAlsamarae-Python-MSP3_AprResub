@@ -65,8 +65,5 @@ def main():
     print("You got " + str(score) + " questions correct!")
 
     print("You got " + str((score / questionsAsked) * 100) + "%")
-
-
-if __name__ == "__main__":
-    main()
+main()
     
