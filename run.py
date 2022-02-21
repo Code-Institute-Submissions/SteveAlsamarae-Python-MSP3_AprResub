@@ -66,4 +66,3 @@ def main():
 
     print("You got " + str((score / questionsAsked) * 100) + "%")
 main()
-    
