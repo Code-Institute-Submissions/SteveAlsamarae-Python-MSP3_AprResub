@@ -1,53 +1,72 @@
-print("Welcome to my computer quiz!")
-
-playing = input("Do you want to play?\n")
-
-if playing.lower() != "yes":
-    quit()
-
-print("Okay! Let's play :)")
-score = 0
+import sys
 
 
-answer = input("Who is the founder of Apple?\n")
-if answer.lower() == "steve jobs":
-    print("Correct!")
-    score += 1
+def askQuestion(question, defaultAnswer):
+    try:
+        answer = input(question)
+    except Exception:
+        print("An Error happened during Entering an answer!")
+        sys.exit()
 
-else:
+    if answer.lower() == defaultAnswer:
+        print("Correct!")
+
+        return 1
+
     print("Incorrect!")
 
-answer = input("Who is the founder of Microsoft?\n")
-if answer.lower() == "bill gates":
-    print("Correct!")
-    score += 1
+    return 0
 
-else:
-    print("Incorrect!")
 
-answer = input("Who is the founder of Google?\n")
-if answer.lower() == "larry page":
-    print("Correct!")
-    score += 1
+quesitons = [
+    "Who is the founder of Apple?\n",
+    "Who is the founder of Microsoft?\n",
+    "Who is the founder of Google?\n",
+    "Who is the founder of Facebook?\n",
+    "Who is the founder of Tesla?\n",
+    ]
 
-else:
-    print("Incorrect!")
+answers = [
+    "steve jobs",
+    "bill gates",
+    "larry page",
+    "mark zuckerberg",
+    "elon musk",
+]
 
-answer = input("Who is the founder of Facebook?\n")
-if answer.lower() == "mark zuckerberg":
-    print("Correct!")
-    score += 1
 
-else:
-    print("Incorrect!")
+def main():
 
-answer = input("Who is the founder of Tesla?\n")
-if answer.lower() == "elon musk":
-    print("Correct!")
-    score += 1
+    print("Welcome to my computer quiz!")
 
-else:
-    print("Incorrect!")
+    try:
+        playing = input("Do you want to play?\n")
+    except Exception:
+        print("An Error happened during Entering an answer!")
+        sys.exit()
 
-print("You got " + str(score) + " questions correct!")
-print("You got " + str((score / 4) * 100) + "%.")
+    if playing.lower() != "yes":
+
+        sys.exit()
+
+    print("Okay! Let's play :)")
+
+    score = 0
+
+    questionsAsked = len(quesitons)
+
+    try:
+        for i in range(questionsAsked):
+            score += askQuestion(quesitons[i], answers[i])
+    except Exception:
+        print("An Error happened while checking your answer!")
+        sys.exit()
+
+    print("You got " + str(score) + " questions correct!")
+
+    print("You got " + str((score / questionsAsked) * 100) + "%")
+
+
+if __name__ == "__main__":
+    main()
+    
