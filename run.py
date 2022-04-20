@@ -82,7 +82,7 @@ def main() -> None:
         print()
         sys.exit()
 
-    print(c.bold_blue("Let's start the quiz!"), "\n")
+    print("\n", c.bold_blue("Let's start the quiz!"), "\n")
 
     score: int = 0
     total_questions: int = len(QUESTIONS)
