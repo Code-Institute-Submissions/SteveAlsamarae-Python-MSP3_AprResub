@@ -1,14 +1,31 @@
 import sys
 
 
-def askQuestion(question, defaultAnswer):
+QUESTIONS = [
+    "1. Who is the founder of Apple?\n",
+    "2. Who is the founder of Microsoft?\n",
+    "3. Who is the founder of Google?\n",
+    "4. Who is the founder of Facebook?\n",
+    "5. Who is the founder of Tesla?\n",
+    ]
+
+ANSWERS = [
+    "steve jobs",
+    "bill gates",
+    "larry page",
+    "mark zuckerberg",
+    "elon musk",
+]
+
+
+def ask_question(question, default_answer):
     try:
         answer = input(question)
     except Exception:
         print("An Error happened during Entering an answer!")
         sys.exit()
 
-    if answer.lower() == defaultAnswer:
+    if answer.lower() == default_answer:
         print("Correct!")
 
         return 1
@@ -16,23 +33,6 @@ def askQuestion(question, defaultAnswer):
     print("Incorrect!")
 
     return 0
-
-
-quesitons = [
-    "Who is the founder of Apple?\n",
-    "Who is the founder of Microsoft?\n",
-    "Who is the founder of Google?\n",
-    "Who is the founder of Facebook?\n",
-    "Who is the founder of Tesla?\n",
-    ]
-
-answers = [
-    "steve jobs",
-    "bill gates",
-    "larry page",
-    "mark zuckerberg",
-    "elon musk",
-]
 
 
 def main():
@@ -53,16 +53,19 @@ def main():
 
     score = 0
 
-    questionsAsked = len(quesitons)
+    total_questions = len(QUESTIONS)
 
     try:
-        for i in range(questionsAsked):
-            score += askQuestion(quesitons[i], answers[i])
+        for i in range(total_questions):
+            score += ask_question(QUESTIONS[i], ANSWERS[i])
     except Exception:
         print("An Error happened while checking your answer!")
         sys.exit()
 
     print("You got " + str(score) + " questions correct!")
 
-    print("You got " + str((score / questionsAsked) * 100) + "%")
-main()
+    print("You got " + str((score / total_questions) * 100) + "%")
+
+
+if __name__ == "__main__":
+    main()
