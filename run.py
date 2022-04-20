@@ -1,4 +1,8 @@
+"""A web terminal based quiz game built using Python"""
+
 import sys
+
+from utils import colors as c
 
 
 QUESTIONS: list[str] = [
@@ -32,23 +36,24 @@ def ask_question(question: str, default_answer: str) -> bool:
     try:
         answer: str = input(question)
     except (ValueError, TypeError):
-        print("An Error happened during Entering an answer!")
+        c.print_error("An Error happened during Entering an answer!")
         sys.exit()
 
     while not answer:
         try:
-            print("You did not enter an answer! Try entering an answer!")
+            c.print_warning("You did not enter an answer! Try entering an answer!")
             answer: str = input(question)
         except (ValueError, TypeError):
-            print("An Error happened during Entering an answer!")
+            c.print_error("An Error happened during Entering an answer!")
             sys.exit()
 
     if answer.lower() == default_answer:
-        print("Correct!")
+        c.print_result(True, "Correct!")
 
         return 1
 
-    print("Incorrect!")
+    c.print_result(False, "Incorrect!")
+    print(c.cyan("Correct answer is: ") + c.bold_blue(default_answer), "\n")
 
     return 0
 
@@ -56,28 +61,28 @@ def ask_question(question: str, default_answer: str) -> bool:
 def main() -> None:
     """The main function that runs the quiz."""
 
-    print("Welcome to my computer quiz!")
+    c.print_heading("Welcome to the Quiz!", "You will be asked 5 questions!")
 
     while True:
         try:
             playing: str = input("Do you want to play?[y/yes]\n")
         except (ValueError, TypeError):
-            print("An Error occurred during confirmation!")
+            c.print_error("An Error occurred during confirmation!")
 
             sys.exit()
 
         if not playing:
-            print("You didn't enter an anything!\n")
+            c.print_warning("You didn't enter an anything!\n")
             continue
         break
 
     if playing.lower() != "y" and playing.lower() != "yes":
-        print("No problem! You can always play later!")
-        print("Just click on 'RUN PROGRAM' button to play again!")
+        print(f"{c.cyan('No problem! You can always play later!')}")
+        print(f"To play again, click on the {c.bold_underline_blue('RUN PROGRAM')} button.")
         print()
         sys.exit()
 
-    print("Let's start the quiz!")
+    print(c.bold_blue("Let's start the quiz!"), "\n")
 
     score: int = 0
     total_questions: int = len(QUESTIONS)
@@ -85,9 +90,12 @@ def main() -> None:
     for i in range(total_questions):
         score += ask_question(QUESTIONS[i], ANSWERS[i])
 
-    print("You got " + str(score) + " questions correct!")
-    print("You got " + str((score / total_questions) * 100) + "%")
+    s_msg = f"You got {score} questions correct out of {total_questions}"
+    p_msg = f"Your efficiency is {(score/total_questions * 100)}%"
 
+    c.print_final_result(scores_msg=s_msg, percentage_msg=p_msg, padding=True, pattern_len=60)
+
+    # Exit the program after printing the final result
     sys.exit()
 
 
